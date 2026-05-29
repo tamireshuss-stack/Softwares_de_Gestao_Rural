@@ -1,0 +1,249 @@
+/* CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --verde-principal: #1b5e20;
+    --verde-claro: #4caf50;
+    --laranja-agro: #e65100;
+    --cinza-fundo: #f4f6f4;
+    --branco: #ffffff;
+    --texto-escuro: #2e3d30;
+}
+
+body {
+    background-color: var(--cinza-fundo);
+    color: var(--texto-escuro);
+    line-height: 1.6;
+}
+
+/* CABEÇALHO FIXO */
+header {
+    background-color: var(--verde-principal);
+    color: var(--branco);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--verde-claro);
+}
+
+/* NAVEGAÇÃO DESKTOP */
+.nav-desktop {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-desktop a {
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-desktop a:hover {
+    color: var(--verde-claro);
+}
+
+/* ÍCONE DO MENU HAMBÚRGUER */
+.hamburger-icon {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1010;
+}
+
+.hamburger-icon div {
+    width: 30px;
+    height: 4px;
+    background-color: var(--branco);
+    border-radius: 2px;
+    transition: 0.4s;
+}
+
+/* MENU LATERAL MOBILE */
+.nav-mobile {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Escondido para fora da tela */
+    width: 70%;
+    height: 100vh;
+    background-color: var(--verde-principal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    transition: 0.4s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+    z-index: 1005;
+}
+
+.nav-mobile a {
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* CLASSES DE ATIVAÇÃO VIA JAVASCRIPT */
+.nav-mobile.active {
+    right: 0; /* Traz o menu para a tela */
+}
+
+.hamburger-icon.toggle div:nth-child(1) {
+    transform: rotate(-45deg) translate(-7px, 6px);
+}
+.hamburger-icon.toggle div:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-icon.toggle div:nth-child(3) {
+    transform: rotate(45deg) translate(-7px, -7px);
+}
+
+/* SEÇÃO HERO */
+.hero {
+    margin-top: 70px;
+    background: linear-gradient(rgba(27, 94, 32, 0.85), rgba(46, 61, 48, 0.9)), url('https://images.unsplash.com/photo-1592982537447-7440771109a2?auto=format&fit=crop&q=80&w=1200') no-repeat center/cover;
+    color: var(--branco);
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #e0f2f1;
+}
+
+.tag-tema {
+    display: inline-block;
+    background-color: var(--laranja-agro);
+    color: var(--branco);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* CONTEÚDO E CARDS */
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.titulo-secao {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+    color: var(--verde-principal);
+    position: relative;
+}
+
+.titulo-secao::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--laranja-agro);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.grid-softwares {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--branco);
+    border-left: 5px solid var(--verde-claro);
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    color: var(--verde-principal);
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+}
+
+.card .categoria {
+    font-size: 0.8rem;
+    color: var(--laranja-agro);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* RODAPÉ */
+footer {
+    background-color: var(--texto-escuro);
+    color: #b0bec5;
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 60px;
+    font-size: 0.9rem;
+}
+
+footer p strong {
+    color: var(--branco);
+}
+
+/* RESPONSIVIDADE (MOBILE) */
+@media (max-width: 768px) {
+    .nav-desktop {
+        display: none;
+    }
+
+    .hamburger-icon {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 1.7rem;
+    }
+
+    .grid-softwares {
+        grid-template-columns: 1fr;
+    }
+}
